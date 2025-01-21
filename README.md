@@ -1,3 +1,3 @@
 # bofoto.github.io
 
-# <img src="고양이.webp">
+# <img src="강아지.webp">
