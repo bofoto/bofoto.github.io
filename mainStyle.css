@@ -1,0 +1,129 @@
+h1 {
+    text-align: center;
+
+}
+
+h2 {
+    margin: 12px 18px
+}
+
+#header {
+    margin: 0;
+    padding: 150px 0 80px 0;
+}
+
+#warp {
+    min-width: 900px;
+}
+
+#main {
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.container {
+    gap: 30px;
+    display: flex;
+    transition: all 0.2s;
+}
+
+
+/*네모 박스 */
+.card {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10%;
+    box-shadow: 0px 0px 15px 1px gray;
+
+    transition: all 0.2s;
+}
+
+.card:hover {
+    scale: 110%;
+}
+
+/*빛 바랜 효과*/
+.radial {
+    opacity: 100%;
+    border-radius: 10%;
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    background: radial-gradient(white, blue)
+}
+
+
+footer {
+    display: none;
+}
+
+/*======================모달창 스타일===================================*/
+.modal {
+    /*스타일 - 커스텀*/
+    background-color: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    padding: 20px;
+
+    /*트렌지션*/
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+
+    /*화면을 덮는 코드*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* 중앙에 오게하는 코드*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    /*스타일 수정하기*/
+    max-width: 1250px;
+    width: 100%;
+    height: 800px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    /*트랜지션*/
+    opacity:0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    transform:scale(0.8);
+}
+
+.modal.show{
+    /*모달이 열렸을 때 보여지게 하는 코드*/
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modal.show .modal-content{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover{
+    color: black;
+}
