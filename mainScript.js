@@ -4,8 +4,8 @@ eachCard.forEach(function(card) {
     var x = e.offsetX
     var y = e.offsetY
 
-    rotateY = -4 / 30 * x + 20
-    rotateX = 4 / 30 * y - 20
+    rotateY = -3 / 30 * x + 15
+    rotateX = 3 / 30 * y - 15
     card.style = ` transform : perspective(900px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`
 
   });
@@ -19,7 +19,7 @@ eachCard.forEach(function(card) {
 //모달 관련 스크립트
 document.addEventListener("DOMContentLoaded", function(){
   //elements
-  var modalBtn = document.getElementById("modalBtn");
+              //var modalBtn = document.getElementById("modalBtn");-테스트용 
   var modal = document.getElementById("myModal");
   var closeBtn = document.getElementById("closeBtn");
   var cards = document.querySelectorAll(".card");
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
     modal.classList.toggle("show");
   }
   //events
-  modalBtn.addEventListener("click", toggleModal);
+  //modalBtn.addEventListener("click", toggleModal);
   closeBtn.addEventListener("click",toggleModal);
   cards.forEach(function(card, index){
     card.addEventListener("click", function(){
