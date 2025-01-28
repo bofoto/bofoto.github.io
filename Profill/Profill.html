@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="kr">
+
 <head>
     <style>
         .Profill-Body {
@@ -6,7 +9,7 @@
             height: 300px;
             background-color: gray;
             overflow: hidden;
-            
+
             border-radius: 15px;
         }
 
@@ -22,7 +25,7 @@
 
         .instagram {
             margin: 10px;
-            
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -39,13 +42,23 @@
         }
     </style>
 </head>
-<div class="Profill-Body">
-    <div class="github">
-        <img src="../Image/github-mark.svg" alt="github-mark-Imgae">
-        <a href="https://github.com/bofoto">github.com/bofoto</a>
+
+<body>
+    <div class="Profill-Body">
+        <div class="github">
+            <img src="../Image/github-mark.svg" alt="github-mark-Imgae">
+            <a href="https://github.com/bofoto">github.com/bofoto</a>
+        </div>
+        <div class="instagram">
+            <img id="instaImage" src="../Image/instagram.webp" alt="instagram-Image" />
+            <a href="#">test link</a>
+        </div>
     </div>
-    <div class="instagram">
-        <img id="instaImage" src="../Image/instagram.webp" alt="instagram-Image" />
-        <a href="#">test link</a>
-    </div>
-</div>
+
+    <script>
+        const width = document.querySelector(".Profill-Body").offsetWidth;
+        const height= document.querySelector(".Profill-Body").offsetHeight;
+
+        window.parent.postMessage({width,height},"*");
+    </script>
+</body>

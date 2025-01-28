@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var modalBody = document.getElementById("modalBody");
   var closeBtn = document.getElementById("closeBtn");
   var cards = document.querySelectorAll(".card");
-  // var modalContent = document.querySelector(".modal-content p"); -모달 테스트용 삭제예정정
+  var modalContent = document.querySelector(".modal-content h3"); //-모달 테스트용 삭제예정정
   var cardContentMapping = { 0: "Profill/Profill.html" };
   //functions
   function toggleModal() {
@@ -34,40 +34,43 @@ document.addEventListener("DOMContentLoaded", function () {
     modalBody.innerHTML = ""; // 기존 모달 내용 초기와
     const iframe = document.createElement("iframe");
     iframe.src = cardContentMapping[cardIndex];
-    iframe.width = "100%";
     iframe.style.border = "none";
-    iframe.onload = function(){
-      adjustModalSize(iframe); // iframe 로드 후 크기 조정
-    };
     modalBody.appendChild(iframe); //모달 바디에 추가
   }
-  function adjustModalSize(iframe) {
-  // const iframeDocument = iframe.contentWindow.document;
-  const iframeHeight = 500; //iframeDocument.body.scrollHeight; //iframe 콘텐츠 높이 계산
-  iframe.style.height = iframeHeight+"px";    //iframe 높이 조정
-  const modalContent = modal.querySelector(".modal-content");
-  modalContent.style.height = iframeHeight+50+"px"; //모달 높이 조정 
-  // modalContent.style.width = 300+"px";
-  }
+
   //events
+  
+  //하위 폴더 html에서 iframe 크기조정 메시지 수신
+  window.addEventListener("message",(e)=>{
+    if(!e.origin.includes(window.location.origin)) return;
+    const { width, height}= e.data;
+    console.log(width, height);
+
+    if(width && height){
+      const modalContent = modal.querySelector(".modal-content");
+      modalContent.style.width = width+"px";
+      modalContent.style.height = height+"px";
+    }
+  })
+
   //modalBtn.addEventListener("click", toggleModal);
   closeBtn.addEventListener("click", toggleModal);
   cards.forEach(function (card, index) {
     card.addEventListener("click", function () {
-      // switch (index){
-      //   case 0:
-      //     modalContent.textContent = "Profill 카드에 들어갈 내용";
-      //     break;
-      //   case 1:
-      //     modalContent.textContent = "FrontEnd 카드에 들어갈 내용";
-      //     break;
-      //   case 2:
-      //     modalContent.textContent = "BackEnd 카드에 들어갈 내용";
-      //     break;
-      //   default:
-      //     modalContent.textContent = "정해지지않은 카드입니다."
-      //     break;
-      // }
+      switch (index){
+        case 0:
+          modalContent.textContent = "Profill";
+          break;
+        case 1:
+          modalContent.textContent = "FrontEnd";
+          break;
+        case 2:
+          modalContent.textContent = "BackEnd";
+          break;
+        default:
+          modalContent.textContent = "정해지지않은 카드입니다."
+          break;
+      }
       loadIframe(index);
       toggleModal();
     })
