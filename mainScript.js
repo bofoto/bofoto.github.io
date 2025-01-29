@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const iframe = document.createElement("iframe");
     iframe.src = cardContentMapping[cardIndex];
     iframe.style.border = "none";
-    iframe.style.width = "500px"
-    iframe.style.height = "300px"
+    iframe.style.width = "500px";
+    iframe.style.height = "300px";
     modalBody.appendChild(iframe); //모달 바디에 추가
   }
 
