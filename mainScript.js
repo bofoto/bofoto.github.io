@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var cards = document.querySelectorAll(".card");
   var modalContent = document.querySelector(".modal-content h3"); //-모달 테스트용 삭제예정정
   const iframe = document.createElement("iframe");
+  const {mWidth,mHeight}=0;
   var cardContentMapping = { 
     0: "Profill/Profill.html" ,
     1: "Front/Front.html",
@@ -39,9 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
     modalBody.innerHTML = ""; // 기존 모달 내용 초기와
     iframe.src = cardContentMapping[cardIndex];
     iframe.style.border = "none";
+    iframe.style.width = mWidth+"px";
+    iframe.style.height = mHeight+"px";
     modalBody.appendChild(iframe); //모달 바디에 추가
   }
-  
+
   //events
   
   //하위 폴더 html에서 iframe 크기조정 메시지 수신
@@ -49,13 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if(!e.origin.includes(window.location.origin)) return;
     const { width, height}= e.data;
     console.log(width, height);
-    
+
     if(width && height){
       const modalContent = modal.querySelector(".modal-content");
       modalContent.style.width = width+"px";
       modalContent.style.height = height+25+"px";
-      iframe.style.width = width;
-      iframe.style.height = height;
+      mWidth= width;
+      mHeight= height;
     }
   })
 
