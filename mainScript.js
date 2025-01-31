@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var cards = document.querySelectorAll(".card");
   var modalContent = document.querySelector(".modal-content h3"); //-모달 테스트용 삭제예정정
   const iframe = document.createElement("iframe");
-  var {mWidth,mHeight}=0;
-  var cardContentMapping = { 
-    0: "Profill/Profill.html" ,
+  var mWidth = 0, mHeight = 0;
+  var cardContentMapping = {
+    0: "Profill/Profill.html",
     1: "Front/Front.html",
     2: "Back/Back.html"
   };
@@ -40,25 +40,25 @@ document.addEventListener("DOMContentLoaded", function () {
     modalBody.innerHTML = ""; // 기존 모달 내용 초기와
     iframe.src = cardContentMapping[cardIndex];
     iframe.style.border = "none";
-    iframe.style.width = mWidth+"px";
-    iframe.style.height = mHeight+"px";
+    iframe.style.width = mWidth + "px";
+    iframe.style.height = mHeight + "px";
     modalBody.appendChild(iframe); //모달 바디에 추가
   }
 
   //events
-  
+
   //하위 폴더 html에서 iframe 크기조정 메시지 수신
-  window.addEventListener("message",(e)=>{
-    if(!e.origin.includes(window.location.origin)) return;
-    const { width, height}= e.data;
+  window.addEventListener("message", (e) => {
+    if (!e.origin.includes(window.location.origin)) return;
+    const { width, height } = e.data;
     console.log(width, height);
 
-    if(width && height){
+    if (width && height) {
       const modalContent = modal.querySelector(".modal-content");
-      modalContent.style.width = width+"px";
-      modalContent.style.height = height+25+"px";
-      mWidth= width;
-      mHeight= height;
+      modalContent.style.width = width + "px";
+      modalContent.style.height = height + 25 + "px";
+      mWidth = width;
+      mHeight = height;
     }
   })
 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   closeBtn.addEventListener("click", toggleModal);
   cards.forEach(function (card, index) {
     card.addEventListener("click", function () {
-      switch (index){
+      switch (index) {
         case 0:
           modalContent.textContent = "Profill";
           break;
