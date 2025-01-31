@@ -42,11 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
     iframe.style.border = "none";
     iframe.style.width = mWidth + "px";
     iframe.style.height = mHeight + "px";
-    setTimeout(addChild,500);
-  }
-  function addChild() {
     modalBody.appendChild(iframe); //모달 바디에 추가
+    
   }
+
   //events
 
   //하위 폴더 html에서 iframe 크기조정 메시지 수신
@@ -82,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
           modalContent.textContent = "정해지지않은 카드입니다."
           break;
       }
-      loadIframe(index);
+      setTimeout(loadIframe(index),500);
       toggleModal();
     })
   })
