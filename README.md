@@ -1,2 +1,2 @@
-<a href="bofoto.github.io">bofoto.github.io</a>
+<a href="https://bofoto.github.io">bofoto.github.io</a>
 
