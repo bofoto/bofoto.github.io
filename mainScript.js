@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var cards = document.querySelectorAll(".card");
   var modalContent = document.querySelector(".modal-content h3"); //-모달 테스트용 삭제예정정
   const iframe = document.createElement("iframe");
-  const {mWidth,mHeight}=0;
+  var {mWidth,mHeight}=0;
   var cardContentMapping = { 
     0: "Profill/Profill.html" ,
     1: "Front/Front.html",
