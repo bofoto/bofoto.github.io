@@ -48,21 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //events
 
-  //하위 폴더 html에서 iframe 크기조정 메시지 수신
-  window.addEventListener("message", (e) => {
-    if (!e.origin.includes(window.location.origin)) return;
-    const { width, height } = e.data;
-    console.log(width, height);
-    mWidth = width;
-    mHeight = height;
-    console.log(mWidth, mHeight);
-    if (width && height) {
-      const modalContent = modal.querySelector(".modal-content");
-      modalContent.style.width = width + "px";
-      modalContent.style.height = height + 25 + "px";
-    }
-  })
-
+  
   //modalBtn.addEventListener("click", toggleModal);
   closeBtn.addEventListener("click", toggleModal);
   cards.forEach(function (card, index) {
@@ -71,23 +57,37 @@ document.addEventListener("DOMContentLoaded", function () {
         case 0:
           modalContent.textContent = "Profill";
           break;
-        case 1:
-          modalContent.textContent = "FrontEnd";
-          break;
-        case 2:
-          modalContent.textContent = "BackEnd";
-          break;
-        default:
-          modalContent.textContent = "정해지지않은 카드입니다."
-          break;
-      }
-      setTimeout(loadIframe(index),500);
-      toggleModal();
-    })
-  })
-
-  window, addEventListener("click", function (event) {
-    // 모달의 검은색 배경을 클릭해도 닫히도록 하는 코드
+          case 1:
+            modalContent.textContent = "FrontEnd";
+            break;
+            case 2:
+              modalContent.textContent = "BackEnd";
+              break;
+              default:
+                modalContent.textContent = "정해지지않은 카드입니다."
+                break;
+              }
+              //하위 폴더 html에서 iframe 크기조정 메시지 수신
+              window.addEventListener("message", (e) => {
+                if (!e.origin.includes(window.location.origin)) return;
+                const { width, height } = e.data;
+                console.log(width, height);
+                mWidth = width;
+                mHeight = height;
+                console.log(mWidth, mHeight);
+                if (width && height) {
+                  const modalContent = modal.querySelector(".modal-content");
+                  modalContent.style.width = width + "px";
+                  modalContent.style.height = height + 25 + "px";
+                }
+              })
+              loadIframe(index);
+              toggleModal();
+            })
+          })
+          
+          window, addEventListener("click", function (event) {
+            // 모달의 검은색 배경을 클릭해도 닫히도록 하는 코드
     if (event.target === modal) {
       toggleModal();
     }
