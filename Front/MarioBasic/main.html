@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마리오 게임</title>
+    <link rel="stylesheet" href="mycss.css">
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class = "game">
+    <div id="background" class="backStyle">
+        <img src="marioback.jpg" width="50%" height="100%"><img src="marioback.jpg" width="50%" height="100%">
+        <div class="clouds">
+            <img src="2cloud.png" width="50%" height="50%">
+        </div>
+        <div class="clouds" style="left: 0px;">
+            <img src="2cloud.png" width="50%" height="50%">
+        </div>   
+        <div class="clouds" style="left: 400px;">
+            <img src="cloud.png" width="50%" height="50%">
+        </div> 
+        <div class="clouds" style="left: 1360px;">
+            <img src="cloud.png" width="50%" height="50%">
+        </div> 
+        <div class="clouds" style="left: 600px;">
+            <img src="2cloud.png" width="40%" height="40%">
+        </div> 
+        <div class="clouds" style="left: 1560px;">
+            <img src="2cloud.png" width="40%" height="40%">
+        </div> 
+        
+        <div class="outterBoxStyle" id="outterBox">        
+            <table id="board" class="boardStyle">
+                <tr>
+                    <td width="50px"><img src="coin.png" width="50%"></td>
+                    <td id="coin"> 0 </td>
+                    <td width="50px"><img src="star.png" width="70%"></td>
+                    <td id="life"> 3 </td>
+                    <!--td width="50px"><img src="kirby.png" width="60%"> </td>
+                    <td id="strike"> 3 </td-->
+                    </tr>
+                </table>
+            </div>
+            <div class="marioStyle" id="mario">
+                <img src="mario.gif" width="100%" height="100%">
+            </div>
+            
+            
+        </div>
+        
+        <div class="gumbaStyle" id="gumba_movement">
+            <img src="gumba.gif" width="100%" height="100%">
+        </div>
+        
+    <div class="Gameover" id="GAMEOVER">
+        <img src="gameover.jpg" width="100%" height="100%">
+    </div>
+    <!-- <div class="토관스" id="토관자스">
+        <img src="토관.png" width="100%" height="100%">
+    </div> -->
+    
+    <!--div class="kirby" id="kirby">
+    <img src="kirby-powerful.png" width="100%" height="90%">
+    </div-->
+    
+    
+    <script src="myscript.js"></script>
+</div>
+</body>
+</html> 

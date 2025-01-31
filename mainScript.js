@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var mWidth = 0, mHeight = 0;
   var cardContentMapping = {
     0: "Profill/Profill.html",
-    1: "Front/Front.html",
+    1: "Front/MarioBasic/main.html",
     2: "Back/Back.html"
   };
   //functions
@@ -43,12 +43,29 @@ document.addEventListener("DOMContentLoaded", function () {
     iframe.style.width = mWidth + "px";
     iframe.style.height = mHeight + "px";
     modalBody.appendChild(iframe); //모달 바디에 추가
-    
   }
-
+  function messageLoaded() { 
+   loadIframe();
+  }
   //events
 
-  
+  //하위 폴더 html에서 iframe 크기조정 메시지 수신
+  window.addEventListener("message", (e) => {
+    if (!e.origin.includes(window.location.origin)) return;
+    const { width, height } = e.data;
+    console.log(width, height);
+      mWidth = width;
+      mHeight = height;
+    if (width && height) {
+      const modalContent = modal.querySelector(".modal-content");
+      modalContent.style.width = width + "px";
+      modalContent.style.height = height + 25 + "px";
+
+      iframe.style.width = mWidth + "px";
+      iframe.style.height = mHeight + "px";
+    }
+  })
+
   //modalBtn.addEventListener("click", toggleModal);
   closeBtn.addEventListener("click", toggleModal);
   cards.forEach(function (card, index) {
@@ -57,39 +74,32 @@ document.addEventListener("DOMContentLoaded", function () {
         case 0:
           modalContent.textContent = "Profill";
           break;
-          case 1:
-            modalContent.textContent = "FrontEnd";
-            break;
-            case 2:
-              modalContent.textContent = "BackEnd";
-              break;
-              default:
-                modalContent.textContent = "정해지지않은 카드입니다."
-                break;
-              }
-              //하위 폴더 html에서 iframe 크기조정 메시지 수신
-              window.addEventListener("message", (e) => {
-                if (!e.origin.includes(window.location.origin)) return;
-                const { width, height } = e.data;
-                console.log(width, height);
-                mWidth = width;
-                mHeight = height;
-                console.log(mWidth, mHeight);
-                if (width && height) {
-                  const modalContent = modal.querySelector(".modal-content");
-                  modalContent.style.width = width + "px";
-                  modalContent.style.height = height + 25 + "px";
-                }
-              })
-              loadIframe(index);
-              toggleModal();
-            })
-          })
-          
-          window, addEventListener("click", function (event) {
-            // 모달의 검은색 배경을 클릭해도 닫히도록 하는 코드
+        case 1:
+          modalContent.textContent = "FrontEnd";
+          break;
+        case 2:
+          modalContent.textContent = "BackEnd";
+          break;
+        default:
+          modalContent.textContent = "정해지지않은 카드입니다."
+          break;
+      }
+      loadIframe(index);
+      toggleModal();
+    })
+  })
+
+  window.addEventListener("click", function (event) {
+    // 모달의 검은색 배경을 클릭해도 닫히도록 하는 코드
     if (event.target === modal) {
       toggleModal();
     }
   })
 })
+
+/*setTimeout(()=>{
+    if(mWidth && mHeight) {
+     mWidth = mWidth;
+     mHeight = mHeight;
+     }
+    },0);*/

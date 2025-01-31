@@ -1,0 +1,126 @@
+*{
+  margin-left:0;
+}
+.game{
+    position: fixed;
+    width: 960px;
+    height: 550px;
+    overflow: hidden;
+
+}
+.outterBoxStyle {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.marioStyle {
+    position: fixed;
+    left: 50px;
+    right: inherit;
+    top: 380px;
+    width: 100px;
+    height: 100px;
+    
+    
+}
+ 
+.backStyle {
+    position: absolute;
+    left: 0px;
+    width: 1920px;
+    /* height: 510 px; */
+    animation: map_move 3s linear infinite;
+    overflow: hidden;
+}
+@keyframes map_move {
+    0%{
+        left: 0;
+    }
+    100%{
+        left: -960px;
+    }
+}
+
+.kirby{
+    position: fixed;
+    left: -96px;
+    top: 410px;
+    width: 96px;
+    height: 80px;
+   
+    
+}
+.clouds{
+    position: absolute;
+    top: 80px;
+    left: 960px;
+    width: 300px;
+    height: 150px;
+}
+.토관스{
+    position: absolute;
+    top: 350px;
+    left: 900px;
+}
+.gumbaStyle{
+    position: relative;
+    top: 422px;
+    left: 1000px;
+    width: 50px;
+    height: 50px;
+}
+.gumbaStyle.hide{
+    opacity: 0;
+}
+.gumbaStyle.show{
+    opacity: 1;
+}
+.Gameover{
+    position: absolute;
+    left: 0px;
+    top: -800px;
+    
+    }
+    @keyframes bounce {
+        0%{
+            top: -800px;
+            animation-timing-function: ease-in;
+        }
+        20%{
+            top: 0px;
+            animation-timing-function: ease-out;
+        }  
+        40%{
+            top: -100px;
+            animation-timing-function: ease-in;
+        }  
+        60%{
+            top: -0px;
+            animation-timing-function: ease-out;
+        }  
+        80%{
+            top: -20px;
+            animation-timing-function: ease-in;
+        }
+        100%{
+            top: 0px;
+            animation-timing-function: ease-out;
+        }  
+}
+
+
+.boardStyle {
+    margin-left: 30px;
+    margin-top: 45px;
+    border: 2px solid rgb(0, 255, 0);
+    width: 300px;
+    text-align: center;
+}
+td {
+    padding: 0px;
+    border: 1px dashed #ddd;
+    text-align: center;
+    color:rgb(255, 255, 255);
+    font-weight: 700;
+}
