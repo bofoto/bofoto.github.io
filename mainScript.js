@@ -52,13 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!e.origin.includes(window.location.origin)) return;
     const { width, height } = e.data;
     console.log(width, height);
-
+    mWidth = width;
+    mHeight = height;
+    console.log(mWidth, mHeight);
     if (width && height) {
       const modalContent = modal.querySelector(".modal-content");
       modalContent.style.width = width + "px";
       modalContent.style.height = height + 25 + "px";
-      mWidth = width;
-      mHeight = height;
     }
   })
 
