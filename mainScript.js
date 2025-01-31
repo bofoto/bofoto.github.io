@@ -25,21 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
   var closeBtn = document.getElementById("closeBtn");
   var cards = document.querySelectorAll(".card");
   var modalContent = document.querySelector(".modal-content h3"); //-모달 테스트용 삭제예정정
-  var cardContentMapping = { 0: "Profill/Profill.html" };
+  const iframe = document.createElement("iframe");
+  var cardContentMapping = { 
+    0: "Profill/Profill.html" ,
+    1: "Front/Front.html",
+    2: "Back/Back.html"
+  };
   //functions
   function toggleModal() {
     modal.classList.toggle("show");
   }
   function loadIframe(cardIndex) {
     modalBody.innerHTML = ""; // 기존 모달 내용 초기와
-    const iframe = document.createElement("iframe");
     iframe.src = cardContentMapping[cardIndex];
     iframe.style.border = "none";
-    iframe.style.width = "500px";
-    iframe.style.height = "300px";
     modalBody.appendChild(iframe); //모달 바디에 추가
   }
-
+  
   //events
   
   //하위 폴더 html에서 iframe 크기조정 메시지 수신
@@ -47,11 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if(!e.origin.includes(window.location.origin)) return;
     const { width, height}= e.data;
     console.log(width, height);
-
+    
     if(width && height){
       const modalContent = modal.querySelector(".modal-content");
       modalContent.style.width = width+"px";
-      modalContent.style.height = height+"px";
+      modalContent.style.height = height+25+"px";
+      iframe.style.width = width;
+      iframe.style.height = height;
     }
   })
 
