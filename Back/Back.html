@@ -1,24 +1,44 @@
 <!DOCTYPE html>
-<html lang="kr"></html>
+<html lang="kr">
+
+</html>
+
 <head>
     <style>
-        *{
-            margin:0;
+        * {
+            margin: 0;
         }
-        .mainbody{
+
+        .mainbody {
             width: 1200px;
             height: 750px;
             overflow: hidden;
             border-radius: 15px;
         }
+
+        .card {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(240, 240, 240);
+            border-radius: 10%;
+            box-shadow: 0px 0px 15px -5px gray;
+
+            transition: all 0.15s;
+        }
     </style>
 </head>
+
 <body>
-    <div class="mainbody"></div>
+    <div class="mainbody">
+        <div class="card">
+            <h2>Mario Game</h2>
+            <a href="MarioBasic/main.html">go</a>
+        </div>
+    </div>
 </body>
 <script>
     const width = document.querySelector(".mainbody").offsetWidth;
     const height = document.querySelector(".mainbody").offsetHeight;
 
-    window,parent.postMessage({width,height},"*");
+    window, parent.postMessage({ width, height }, "*");
 </script>
