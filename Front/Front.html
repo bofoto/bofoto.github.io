@@ -1,1 +1,24 @@
-<a href="#">ggg</a>
+<!DOCTYPE html>
+<html lang="kr"></html>
+<head>
+    <style>
+        *{
+            margin:0;
+        }
+        .mainbody{
+            width: 1200px;
+            height: 750px;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainbody"></div>
+</body>
+<script>
+    const width = document.querySelector(".mainbody").offsetWidth;
+    const height = document.querySelector(".mainbody").offsetHeight;
+
+    window,parent.postMessage({width,height},"*");
+</script>
