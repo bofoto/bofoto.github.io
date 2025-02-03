@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var mWidth = 0, mHeight = 0;
   var cardContentMapping = {
     0: "Profill/Profill.html",
-    1: "Front/MarioBasic/main.html",
+    1: "Front/Front.html",
     2: "Back/Back.html"
   };
   //functions
